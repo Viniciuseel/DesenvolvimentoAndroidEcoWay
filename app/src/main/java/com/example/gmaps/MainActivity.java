@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializa views
         fabAddMarker = findViewById(R.id.fab_add_marker);
         imageDialogContainer = findViewById(R.id.image_dialog_container);
         fullSizeImage = findViewById(R.id.full_size_image);
@@ -247,25 +246,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Toast.makeText(this, "Erro ao exibir imagem", Toast.LENGTH_SHORT).show();
         }
     }
-
     private Bitmap createEmojiBitmap(String emoji) {
+        int size = 100; // tamanho fixo
+        Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
         Paint paint = new Paint();
-        paint.setTextSize(EMOJI_SIZE);
-        paint.setTextAlign(Paint.Align.LEFT);
+        paint.setTextSize(64); // tamanho do emoji dentro do bitmap
+        paint.setTextAlign(Paint.Align.CENTER);
         paint.setColor(Color.BLACK);
         paint.setAntiAlias(true);
 
-        Rect bounds = new Rect();
-        paint.getTextBounds(emoji, 0, emoji.length(), bounds);
+        // Centraliza o emoji no canvas
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        float x = size / 2f;
+        float y = size / 2f - (fm.ascent + fm.descent) / 2;
 
-        Bitmap bitmap = Bitmap.createBitmap(
-                bounds.width(),
-                bounds.height(),
-                Bitmap.Config.ARGB_8888
-        );
-        Canvas canvas = new Canvas(bitmap);
-        canvas.drawText(emoji, 0, bounds.height(), paint);
+        canvas.drawText(emoji, x, y, paint);
 
         return bitmap;
     }
 }
+
+

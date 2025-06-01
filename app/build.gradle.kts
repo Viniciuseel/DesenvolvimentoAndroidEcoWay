@@ -1,17 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("com.google.secrets_gradle_plugin") version "0.5"
-
+    alias(libs.plugins.secrets.gradle.plugin) // usar alias do Version Catalog
 }
 
 android {
     namespace = "com.example.gmaps"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.gmaps"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
+
         versionCode = 1
         versionName = "1.0"
 
@@ -27,20 +27,20 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation("com.google.android.gms:play-services-maps:17.0.0.1")
     implementation(libs.play.services.maps)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
