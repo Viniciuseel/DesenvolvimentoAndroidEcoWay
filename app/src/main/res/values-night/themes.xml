@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
+<<<<<<< HEAD
     <style name="Base.Theme.ProjectEcoWay" parent="Theme.Material3.DayNight.NoActionBar">
+=======
+    <style name="Base.Theme.Gmaps" parent="Theme.Material3.DayNight.NoActionBar">
+>>>>>>> fdce6692c0cdcf4bc148b4e32a2ba9d894f6472d
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

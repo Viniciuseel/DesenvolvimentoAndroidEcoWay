@@ -19,6 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "ProjectEcoWay"
+=======
+rootProject.name = "Gmaps"
+>>>>>>> fdce6692c0cdcf4bc148b4e32a2ba9d894f6472d
 include(":app")
  
